@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 
 const Jewelry = () => {
     const [jewelry,setJewelry]=useState([]);
+    console.log(jewelry);
 
     useEffect(()=>{
         const getjewelryData=async()=>{
