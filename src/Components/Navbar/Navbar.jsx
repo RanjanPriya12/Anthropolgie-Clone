@@ -1,19 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
-import Profile from './Profile';
-import Search from './Search';
-import Slider from './Slider';
+import Logo from './Helper/Logo';
+import Profile from './Helper/Profile';
+import SearchIcon from '@mui/icons-material/Search';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+// import Search from './Helper/Search';
+import Slider from './Helper/Slider';
+import '../Style/Navbar.css';
+import Sidebar from './Helper/Sidebar';
 
 const Navbar = () => {
   return (
     <div className='navbar'>
         <Slider/>
         <Profile/>
-        <div style={{display:"flex", justifyContent:"space-between", width:"95%", margin:"auto", marginTop:"10px"}}>
+        <div className="logoSection">
         <Link className="link" to='/'><Logo/></Link>
-        <Link className="link" to='/cart'><Search/></Link>
+        <div className='searchBar'>
+            <input type="text" placeholder='Search AntroLiving' />
+            <SearchIcon/>
+          </div>
+          
+        <Link className="link" to='/cart'><LocalMallIcon/></Link>
+        <div className='sidebar'></div>
         </div>
+        <Sidebar/>
         <hr />
         <div style={{display:"flex", justifyContent:"space-between", width:"95%", margin:"auto", marginTop:"10px"}}>
             <Link className="link" to='/new'>New!</Link>
@@ -22,7 +33,7 @@ const Navbar = () => {
             <Link className="link" to='/shoes'>Shoes</Link>
             <Link className="link" to='/accessories'>Accessories</Link>
             <Link className="link"to='/candles'>Gifts & Candles</Link>
-            <Link className="link" to='/funiture'>Home & Furniture</Link>
+            <Link className="link" to='/furniture'>Home & Furniture</Link>
             <Link className="link" to='/beauty'>Beauty & Wellness</Link>
             <Link className="link" to='/garden'>Garden & Outdoor</Link>
             <Link className="link" to='/wedding'>Wedding</Link>

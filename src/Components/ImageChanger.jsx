@@ -2,7 +2,7 @@ import React from 'react';
 import './Style/ImageChanger.css';
 
 const ImageChanger = ({p}) => {
-    console.log(p)
+    //console.log(p)
   return (
     <div className='container'>
 <div className="card hoverwrap">

@@ -1,0 +1,88 @@
+
+  
+  .slider{
+    width:100%;
+    background-color: #56719F;
+    color: white;
+    height: 60px;
+  }
+  .searchBarSection{
+    display:flex; 
+    justify-content:space-between; 
+    gap:20px;
+  }
+  .underline{
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .underline:hover{
+    color: rgb(43, 40, 40);
+  }
+  .profileSection{
+    display: flex;
+    gap: 30px;
+    width: 30%;
+    margin-left: 80%;
+    font-weight: 400;
+    font-size: 14px;
+  }
+  
+  .searchBar{
+    border: 1px solid gray;
+  }
+  .searchBar input{
+    border: none;
+    margin-bottom: 8px;
+    width: 350px;
+  }
+  
+  .link{
+    text-decoration: none;
+    color: rgb(69, 69, 69);
+    font-size: 14px;
+  }
+  
+  .link:hover{
+    color:#408fbd;
+    text-decoration: underline 2px solid #408fbd;;
+  }
+  .navbar{
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: aliceblue;
+  }
+  .logoSection{
+    display:flex;
+     justify-content:space-between;
+      width:95%; 
+      margin:auto;
+       margin-top:10px;
+  }
+  .smallicon{
+    display: none;
+  }
+  @media screen  and (min-width:360px) and (max-width:760px) {
+    .slider{
+        display: none;
+      }
+     .profileSection{
+      display: none;
+     }
+     .logoSection{
+      display:flex;
+      flex-direction: column;
+    }
+    .smallicon{
+      display: block;
+          }
+          .searchBar{
+            width: 300px;
+          }
+    
+    
+ 
+  }

@@ -1,7 +1,0 @@
-.cardItem{
-    display: flex;
-    gap: 30px;
-    width: 95%;
-    margin: auto;
-    justify-content: space-between;
-}

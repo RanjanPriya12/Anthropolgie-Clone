@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ImageChanger from './ImageChanger';
-import './Style/ImageChanger.css';
+import ImageChanger from '../../ImageChanger';
+import '../../Style/ImageChanger.css';
 
 const Trending = () => {
     const [trending,setTrending]=useState([]);

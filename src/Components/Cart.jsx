@@ -3,7 +3,7 @@ import ImageChanger from './ImageChanger';
 import './Style/Garden.css';
 
 const Cart = ({p}) => {
-    console.log(p)
+    //console.log(p)
   return (
     <div className='cartContainer'>
         <ImageChanger p={p}/>

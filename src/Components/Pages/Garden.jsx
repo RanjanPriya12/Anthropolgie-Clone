@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
-import Cart from './Cart';
-import './Style/Garden.css';
+import Cart from '../Cart';
+import '../Style/Garden.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Garden = () => {
     const [gardenData,setGardenData]=useState([]);
@@ -9,8 +10,8 @@ const Garden = () => {
   const [totalCount, setTotalCount]=useState(12);
 
 const getProduct= async()=>{
-    const res=await axios.get(`http://localhost:8080/dress?_page=${page}&_limit=12`);
-    console.log(res.data);
+    const res=await axios.get(`http://localhost:8080/garden?_page=${page}&_limit=12`);
+    // console.log(res.data);
     setTotalCount(Number(res.headers["x-total-count"]));
     setGardenData(res.data);
   }
@@ -29,6 +30,10 @@ const getProduct= async()=>{
             <div>Sort:
                 <select>
                     <option value="sort">Feature</option>
+                    <option value="lth">Price Low To High</option>
+                    <option value="htl">Price High to Low</option>
+                    <option value="atz">Product A-Z</option>
+                    <option value="zta">Product Z-A</option>
                 </select>
             </div>
             <div>
@@ -44,7 +49,7 @@ const getProduct= async()=>{
         </div>
             <div className='productContainer'>
             {gardenData.map(p=>(
-                <div key={p.id}><Cart p={p}/></div>
+                <div key={p.id}><Link className='link1' to={`/garden/${p.id}`}><Cart p={p}/></Link></div>
             ))}
             </div>
         </div>

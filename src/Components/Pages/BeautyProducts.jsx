@@ -1,7 +1,8 @@
 import React, {useState, useEffect }from 'react';
 import axios from 'axios';
-import Cart from './Cart';
-import './Style/Garden.css';
+import '../Style/Garden.css';
+import Cart from '../Cart';
+import { Link } from 'react-router-dom';
 
 const BeautyProducts = () => {
     const [beautyProducts,setBeautyProducts]=useState([]);
@@ -42,8 +43,9 @@ const getProduct= async()=>{
         
         </div>
             <div className='productContainer'>
+           
             {beautyProducts.map(p=>(
-                <div key={p.id}><Cart p={p}/></div>
+                <div key={p.id}><Link className='link1' to={`/beauty/${p.id}`}><Cart p={p}/></Link></div>
             ))}
             </div>
         </div>

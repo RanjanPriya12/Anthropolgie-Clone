@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import './Style/Home.css';
+import '../../Style/Home.css';
 
 const Explore = () => {
     const [explore,setExplore]=useState([]);
