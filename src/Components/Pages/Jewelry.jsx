@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import Cart from '../Cart';
+import Cart from '../Card';
 import '../Style/Garden.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';

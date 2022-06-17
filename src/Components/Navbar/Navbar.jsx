@@ -9,6 +9,7 @@ import Slider from './Helper/Slider';
 import '../Style/Navbar.css';
 import Sidebar from './Helper/Sidebar';
 
+
 const Navbar = () => {
   return (
     <div className='navbar'>
@@ -20,13 +21,14 @@ const Navbar = () => {
             <input type="text" placeholder='Search AntroLiving' />
             <SearchIcon/>
           </div>
-          
         <Link className="link" to='/cart'><LocalMallIcon/></Link>
-        <div className='sidebar'></div>
+        <div className='sidebar'>
+          <Sidebar/>
         </div>
-        <Sidebar/>
+        </div>
+        
         <hr />
-        <div style={{display:"flex", justifyContent:"space-between", width:"95%", margin:"auto", marginTop:"10px"}}>
+        <div className="MainNav" style={{display:"flex", justifyContent:"space-between", width:"95%", margin:"auto", marginTop:"10px"}}>
             <Link className="link" to='/new'>New!</Link>
             <Link className="link" to='/dress'>Dresses</Link>
             <Link className="link" to='/clothing'>Clothing</Link>

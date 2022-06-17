@@ -1,7 +1,7 @@
 import React, {useState, useEffect }from 'react';
 import axios from 'axios';
 import '../Style/Garden.css';
-import Cart from '../Cart';
+import Cart from '../Card';
 import { Link } from 'react-router-dom';
 
 const BeautyProducts = () => {

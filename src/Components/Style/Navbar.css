@@ -27,7 +27,9 @@
     font-weight: 400;
     font-size: 14px;
   }
-  
+  .sidebar{
+    display: none;
+  }
   .searchBar{
     border: 1px solid gray;
   }
@@ -82,7 +84,13 @@
           .searchBar{
             width: 300px;
           }
-    
+    .MainNav{
+      display: none;
+      color: white;
+    }
+    .sidebar{
+      display: block;
+    }
     
  
   }
