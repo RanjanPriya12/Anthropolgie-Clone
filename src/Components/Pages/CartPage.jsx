@@ -1,56 +1,112 @@
-import { useContext, useEffect,useState } from "react";
-import { CartContext } from "../Contexts/Cartcontext";
-import { ThemeContext } from "../Contexts/ThemeContext";
-import { StyleDiv,UnderDiv } from "./Mydiv";
-import { Navigate } from "react-router-dom";
-import { AuthContext } from "../Contexts/loginContext";
+import { useContext, useEffect,useState} from "react";
+import { CartContext } from "../../Context/CartContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import '../Style/Payment.css';
 
-export const Cart=()=>{
-    const [Data,setdata]=useState([]);
-    const {handleLength}=useContext(CartContext);
-    const {Theme}=useContext(ThemeContext);
-    const {isAuth}=useContext(AuthContext)
+
+export const CartPage=()=>{
+    const [cartData,setCartData]=useState([]);
+    const {handleCartLength}=useContext(CartContext);
+    const navigate=useNavigate();
 
 useEffect(()=>{
 getData();
-handleLength();
+handleCartLength();
 },[]);
-
-if(!isAuth){
-
-    return <Navigate to={"/login"}/>
- }
-
-async function getData() {
+const getData=async() =>{
     const data=await fetch("http://localhost:8080/cart").then(d=>d.json());
-     setdata(data);
-    //  console.log(data);
+     setCartData(data);
+     console.log(cartData,data);
 }
 
-    return (<StyleDiv style={Theme?{width:"100%",backgroundColor:"black"}:{backgroundColor:"white"}}>{Data.map((e)=>(
+// let sum=0;
+// cartData.map((item) =>{
+//     sum=sum+item.qty*Number(item.price);
+//     console.log(sum)
+// });
 
-      
-     <UnderDiv>
-         <div><img style={{height:"98%",width:"98%",border:"1px solid teal",margin:"1%"}} src={e.image_url}/></div>
-         <div style={Theme?{backgroundColor:"coral"}:{backgroundColor:"white"}}>
-             <h4>{e.name}</h4>
-             <p>Rs.{e.price}</p>
-             <p style={{textDecoration:"line-through"}}>
 
-                Rs.{e.strikedoffprice}</p>
-             <button
+
+    return (<div style={{width:"95%", display:"flex",justifyContent:"space-around",margin:"auto",marginTop:"200px"}}>
+        <div className="ProductContainerDiv" style={{width:"55%"}}>
+            <div style={{display:'flex',justifyContent:"space-between"}}>
+                <b>Basket</b>
+                <b><a href="#">Delivery Option</a></b>
+            </div>
+            <div style={{width:"100%"}}>
+                <table style={{width:"100%"}}>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Item Price</th>
+                            <th>Item Qty</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cartData.map(p=>(
+                            <tr key={p.id}>
+                                <td style={{display:"flex"}}>
+                                    <div>
+                                        <img src={p.image1}/>
+                                    </div>
+                                    <div style={{textAlign:"left"}}>
+                                        <p>{p.content}</p>
+                                        <p>Color: {p.color}</p>
+                                        <p>Size: S</p>
+                                        <p>Fit Standard</p>
+                                        <a href="#">edit</a>
+                                    </div>
+                                </td>
+                                <td>${p.price}</td>
+                                <td><p>{p.qty} item</p>
+                                    <button
               onClick={()=>{
-                  handleLength();
-                const data=e;
-               fetch(`http://localhost:8080/cart/${data.id}`,{
-                   method:"DELETE"
-               })
-getData();
-            }}>Delete from Cart</button>
-         </div>
-     </UnderDiv>
+                  handleCartLength();
+               
+                  
+axios.delete(`http://localhost:8080/cart/${p.id}`)
+    .then(response => {
+      setCartData(response.status);
+      
+    });
+    navigate("/cart");
 
-
-
-    ))}</StyleDiv>)
+            }}>Remove</button></td>
+                                <td>
+                                    <p>{p.qty*p.price}</p>
+                                    <a href="#">Save for later</a></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div className="OrderSummaryDiv" style={{width:"25%"}}>
+            <b>Order Summary</b>
+            <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", justifyContent:"space-between",textAlign:"left", border:"1px solid gray", padding:"10px"}}>
+                <div>SubTotal</div>
+                <div>{cartData.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+                </div>
+                <div>Shipping</div>
+                <div>TBD</div>
+                <div>Estimated Tax</div>
+                <div>00</div>
+                <div>Total</div>
+                <div>{cartData.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}</div>
+            </div>
+            <button className="proceed" onClick={()=>{navigate("/address")}}>Proceed To CheckOut</button>
+            <button style={{width:"100%", heigh:"50px"}}><img style={{width:"100%", height:"50px"}} src="https://th.bing.com/th/id/OIP.97jolFDCoU8VaLu1K0JHMAAAAA?pid=ImgDet&rs=1" alt="" /></button>
+        <hr />
+        <div style={{width:"100%", display:"flex", justifyContent:"space-between"}}>
+            <p>PromoCode</p>
+            <p style={{color:"teal"}}><AddBoxIcon/></p>
+        </div>
+        </div>
+           
+        
+             
+        </div>);
 }

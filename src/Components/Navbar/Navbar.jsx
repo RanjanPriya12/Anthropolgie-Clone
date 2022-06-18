@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Helper/Logo';
 import Profile from './Helper/Profile';
@@ -7,10 +7,12 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 // import Search from './Helper/Search';
 import Slider from './Helper/Slider';
 import '../Style/Navbar.css';
-import Sidebar from './Helper/Sidebar';
+import { CartContext } from '../../Context/CartContext';
+// import Sidebar from './Helper/Sidebar';
 
 
 const Navbar = () => {
+  const {cartLength}=useContext(CartContext);
   return (
     <div className='navbar'>
         <Slider/>
@@ -21,10 +23,14 @@ const Navbar = () => {
             <input type="text" placeholder='Search AntroLiving' />
             <SearchIcon/>
           </div>
-        <Link className="link" to='/cart'><LocalMallIcon/></Link>
-        <div className='sidebar'>
+          <div style={{display:"flex",flexDirection:"column"}}>
+            <span style={{marginBottom:"-8px", color:"white", width:"18px",fontWeight:"600",zIndex:"1", fontSize:"12px", backgroundColor:"red",borderRadius:"50%"}}>{cartLength}</span>
+          <Link className="link" to='/cart'><LocalMallIcon/></Link>
+          </div>
+        
+        {/* <div className='sidebar'>
           <Sidebar/>
-        </div>
+        </div> */}
         </div>
         
         <hr />

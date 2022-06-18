@@ -1,7 +1,7 @@
 import '../../Style/ProductJ.css';
 import { Carousel } from "react-carousel-minimal";
 import { useParams } from "react-router-dom";
-import React,{ useState, useEffect } from "react";
+import React,{ useState, useEffect, useContext } from "react";
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import axios from "axios";
 import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
@@ -10,20 +10,17 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import { Cartpage } from "../Cartcount/Cartpage";
-import { useDisclosure } from "@chakra-ui/react";
+import { CartContext } from '../../../Context/CartContext';
 
 const ProductG = () => {
   const [product, setProduct] = useState({});
-  const [side, setsidebar] = useState(false);
   const { id } = useParams();
+  const {handleCartLength}=useContext(CartContext);
 
   useEffect(() => {
     getData();
+    handleCartLength();
   }, [id]);
-  const displayside = () => {
-    setsidebar(true);
-  };
 
   const getData = () => {
     axios
@@ -33,7 +30,6 @@ const ProductG = () => {
         console.log(res.data)
       });
   };
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <div className="productJ">
@@ -96,7 +92,17 @@ const ProductG = () => {
           <option value="">5</option>
         </select></p>
         
-        <button className='addtocart'>ADD TO BASKET</button>
+        <button className='addtocart' onClick={()=>{
+                  handleCartLength();
+                const data=product;
+               fetch("http://localhost:8080/cart",{
+                   method:"POST",
+                 headers:{
+                     "content-type":"application/json"
+                 },
+                 body:JSON.stringify(data)
+               })}}
+        >ADD TO BASKET</button>
         <div style={{display:'flex', gap:'208px', marginTop:"10px", marginBottom:"10px"}}>
           <a href="#">Add To Registry</a>
           <a href="#">Add To Whislist</a>
