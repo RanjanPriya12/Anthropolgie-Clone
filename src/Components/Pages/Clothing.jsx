@@ -18,6 +18,17 @@ const getProduct= async()=>{
   useEffect(()=>{
     getProduct();
   },[page]);
+
+  const sortHandler = (value) => {
+    console.log(value);
+    if (value === "htl") {
+        setDressData([...(data).sort((a, b) => b.price - a.price)]);
+    } else if (value === "lth") {
+        setDressData([...(data).sort((a, b) => a.price - b.price)]);
+    } else {
+        setDressData(data);
+    }
+  };
   
   return (
     <div className='gardenContainer'>
@@ -28,8 +39,12 @@ const getProduct= async()=>{
                 <div className='SortPagination'>
             
             <div>Sort:
-                <select>
-                    <option value="sort">Feature</option>
+                <select onChange={(e) => sortHandler(e.target.value)}>
+                <option value="price">Feature</option>
+          <option value="htl">Price: High To Low</option>
+          <option value="lth">Price: Low To High</option>
+          <option value="atz">Product A-Z</option>
+          <option value="zta">Product Z-A</option>
                 </select>
             </div>
             <div>
