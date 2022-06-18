@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CartContext } from '../../../Context/CartContext';
 
+
 const ProductG = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
@@ -21,15 +22,24 @@ const ProductG = () => {
     getData();
     handleCartLength();
   }, [id]);
+  
 
   const getData = () => {
     axios
       .get(`http://localhost:8080/garden/${id}`)
       .then((res) => {
         setProduct(res.data);
-        console.log(res.data)
       });
   };
+  const handleOnChange=(e)=>{
+    const {value,name}=e.target;
+        setProduct({
+            ...product,
+            [name]:+value,
+        });
+    }
+
+  
 
   return (
     <div className="productJ">
@@ -42,7 +52,7 @@ const ProductG = () => {
           <img src={product.image2} alt='image1' />
         </div>
         <div>
-          <img src={product.image1} alt='image1' />
+          <img src={product.image3} alt='image1' />
         </div>
       </div>
       <div>
@@ -55,7 +65,7 @@ const ProductG = () => {
               image: `${product.image2}`,
             },
             {
-              image: `${product.image1}`,
+              image: `${product.image3}`,
             },
 
           ]}
@@ -82,19 +92,22 @@ const ProductG = () => {
         <p>$ {product.price}.00</p>
         <p>Or 4 interest-free installments of $11.00 with</p>
         <p>Color : {product.color}</p>
+        <p>Size* <span>XS</span> <span>S</span> <span>M</span> <span>L</span> <span>XL</span> <a href="#">Size Guide</a></p>
         
        
-        <p>Qty*: <select name="" id="" style={{width:"80px", height:"30px", fontSize:"16px", textAlign:"center", padding:"4px",borderRadius:"5px"}}>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
+        <p>Qty*: <select name="qty" onChange={handleOnChange} style={{width:"80px", height:"30px", fontSize:"16px", textAlign:"center", padding:"4px",borderRadius:"5px"}}>
+          <option name="qty" value="0">0</option>
+          <option name="qty" value="1">1</option>
+          <option name="qty" value="2">2</option>
+          <option name="qty" value="3">3</option>
+          <option name="qty" value="4">4</option>
+          <option name="qty" value="5">5</option>
         </select></p>
         
         <button className='addtocart' onClick={()=>{
                   handleCartLength();
                 const data=product;
+                
                fetch("http://localhost:8080/cart",{
                    method:"POST",
                  headers:{
@@ -102,7 +115,7 @@ const ProductG = () => {
                  },
                  body:JSON.stringify(data)
                })}}
-        >ADD TO BASKET</button>
+               >ADD TO BASKET</button>
         <div style={{display:'flex', gap:'208px', marginTop:"10px", marginBottom:"10px"}}>
           <a href="#">Add To Registry</a>
           <a href="#">Add To Whislist</a>

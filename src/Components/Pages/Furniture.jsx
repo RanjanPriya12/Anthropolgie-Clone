@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react';
-import Cart from '../Cart';
+import Cart from '../Card';
 import '../Style/Garden.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const Furniture = () => {
-    const [gardenData,setGardenData]=useState([]);
+const Dresses = () => {
+    const [dressData,setDressData]=useState([]);
     const [page,setPage]=useState(1);
   const [totalCount, setTotalCount]=useState(12);
 
@@ -12,7 +13,7 @@ const getProduct= async()=>{
     const res=await axios.get(`http://localhost:8080/garden?_page=${page}&_limit=12`);
     console.log(res.data);
     setTotalCount(Number(res.headers["x-total-count"]));
-    setGardenData(res.data);
+    setDressData(res.data);
   }
   useEffect(()=>{
     getProduct();
@@ -35,16 +36,17 @@ const getProduct= async()=>{
                 <button disabled={page <= 1}
                     onClick={() => setPage(page - 1)}>{`<`}</button>
 {page}/{Math.ceil(totalCount/12)}
-                <button disabled={page * 5 > totalCount}
+                <button disabled={page * 12 > totalCount}
                     onClick={() => setPage(page + 1)}>{`>`}</button>
 
             </div>
             </div>
-        
+    
         </div>
             <div className='productContainer'>
-            {gardenData.map(p=>(
-                <div key={p.id}><Cart p={p}/></div>
+            
+            {dressData.map(p=>(
+                <div key={p.id}><Link className='link1' to={`/garden/${p.id}`}><Cart p={p}/></Link></div>
             ))}
             </div>
         </div>
@@ -53,4 +55,4 @@ const getProduct= async()=>{
   )
 }
 
-export default Furniture;
+export default Dresses;

@@ -41,7 +41,7 @@ const getProduct= async()=>{
 
             </div>
             </div>
-        
+    
         </div>
             <div className='productContainer'>
             

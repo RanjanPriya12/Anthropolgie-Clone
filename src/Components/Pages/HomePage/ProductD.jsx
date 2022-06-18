@@ -52,7 +52,7 @@ const ProductD = () => {
           <img src={product.image2} alt='image1' />
         </div>
         <div>
-          <img src={product.image1} alt='image1' />
+          <img src={product.image3} alt='image1' />
         </div>
       </div>
       <div>
@@ -65,7 +65,7 @@ const ProductD = () => {
               image: `${product.image2}`,
             },
             {
-              image: `${product.image1}`,
+              image: `${product.image3}`,
             },
 
           ]}

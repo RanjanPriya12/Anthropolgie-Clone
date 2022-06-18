@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Jewelry = () => {
-    const [jewelryData,setJewelryData]=useState([]);
+    const [dressData,setDressData]=useState([]);
     const [page,setPage]=useState(1);
   const [totalCount, setTotalCount]=useState(12);
 
@@ -13,7 +13,7 @@ const getProduct= async()=>{
     const res=await axios.get(`http://localhost:8080/jewelry?_page=${page}&_limit=12`);
     console.log(res.data);
     setTotalCount(Number(res.headers["x-total-count"]));
-    setJewelryData(res.data);
+    setDressData(res.data);
   }
   useEffect(()=>{
     getProduct();
@@ -41,10 +41,11 @@ const getProduct= async()=>{
 
             </div>
             </div>
-        
+    
         </div>
             <div className='productContainer'>
-            {jewelryData.map(p=>(
+            
+            {dressData.map(p=>(
                 <div key={p.id}><Link className='link1' to={`/accessories/${p.id}`}><Cart p={p}/></Link></div>
             ))}
             </div>

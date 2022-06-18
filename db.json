@@ -2269,5 +2269,54 @@
       "price": 220
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": 1,
+      "image1": "https://images.urbndata.com/is/image/Anthropologie/67047092_000_b?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "image2": "https://images.urbndata.com/is/image/Anthropologie/67047092_000_b2?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "image3": "https://images.urbndata.com/is/image/Anthropologie/67047092_000_b3?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "content": "Dannijo Mossy Slip Midi Dress",
+      "product_type": "one",
+      "color": "yellow",
+      "brand": "gucchi",
+      "price": 350,
+      "qty": 1
+    },
+    {
+      "id": 3,
+      "image1": "https://images.urbndata.com/is/image/Anthropologie/67904664_000_b?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "image2": "https://images.urbndata.com/is/image/Anthropologie/67904664_000_b2?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "image3": "https://images.urbndata.com/is/image/Anthropologie/67904664_000_b3?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "content": "Lake Life Multi-Stone Necklace",
+      "product_type": "necklace",
+      "color": "yellow",
+      "brand": "Amadi",
+      "price": 68,
+      "qty": 2
+    },
+    {
+      "id": 4,
+      "image1": "https://images.urbndata.com/is/image/Anthropologie/59352039_012_b11?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "image2": "https://images.urbndata.com/is/image/Anthropologie/59352039_012_b2?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "image3": "https://images.urbndata.com/is/image/Anthropologie/59352039_012_b5?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "content": "Minka Textured Pot",
+      "product_type": "glass",
+      "color": "white",
+      "type": "pot",
+      "price": 128,
+      "qty": 2
+    },
+    {
+      "id": 2,
+      "image1": "https://images.urbndata.com/is/image/Anthropologie/65178998_016_b?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "image2": "https://images.urbndata.com/is/image/Anthropologie/65178998_016_b2?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "iamge3": "https://images.urbndata.com/is/image/Anthropologie/65178998_016_b10?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=100",
+      "content": "Stacked Birthstone Ring",
+      "product_type": "gold",
+      "color": "yellow",
+      "type": "ring",
+      "price": 25,
+      "qty": 1
+    }
+  ]
 }
