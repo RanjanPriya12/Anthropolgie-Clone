@@ -28,6 +28,11 @@ Anthropologie is an American clothing retailer with approximately 200 stores acr
 * Add To Cart
 * Slider
 
+## Images:
+
+* Home Page
+![Anthropologie](/assets/homepage.png)
+![Anthropologie](/assets/womenproduct.png)
 
 ## Available Scripts
 
