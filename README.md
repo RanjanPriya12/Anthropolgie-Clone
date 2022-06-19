@@ -9,6 +9,26 @@ Anthropologie is an American clothing retailer with approximately 200 stores acr
 
 ## Tech Stack Used:
 
+
+* React js
+* Redux
+* Axios
+* Materail UI/ Chakra UI
+* JSON-Server for backend
+* CSS
+
+## Functionalty Made by Me:
+
+* Login
+* Sorting/Filtering
+* Payment gateway page
+* Authentication is required for purchasing any product
+* Home Page/Products Page
+* Routing
+* Add To Cart
+* Slider
+
+
 ## Available Scripts
 
 In the project directory, you can run:
