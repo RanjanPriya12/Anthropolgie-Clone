@@ -7,6 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Anthropologie is an American clothing retailer with approximately 200 stores across the U.S. and Canada which offer an assortment of clothing, jewelry, home furniture, decoration, beauty, and gifts. Anthropologie is part of URBN brands, which includes Urban Outfitters, Free People, BHLDN, and Terrain.
 
+## Tech Stack Used:
+
 ## Available Scripts
 
 In the project directory, you can run:
