@@ -2,6 +2,33 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## About Anthropologie Eccommerce:
+
+Anthropologie is an American clothing retailer with approximately 200 stores across the U.S. and Canada which offer an assortment of clothing, jewelry, home furniture, decoration, beauty, and gifts. Anthropologie is part of URBN brands, which includes Urban Outfitters, Free People, BHLDN, and Terrain.
+
+## Tech Stack Used:
+
+
+* React js
+* Redux
+* Axios
+* Materail UI/ Chakra UI
+* JSON-Server for backend
+* CSS
+
+## Functionalty Made by Me:
+
+* Login
+* Sorting/Filtering
+* Payment gateway page
+* Authentication is required for purchasing any product
+* Home Page/Products Page
+* Routing
+* Add To Cart
+* Slider
+
+
 ## Available Scripts
 
 In the project directory, you can run:
