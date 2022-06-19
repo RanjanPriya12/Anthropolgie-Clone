@@ -3,6 +3,7 @@ import Cart from '../Card';
 import '../Style/Garden.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Dressfilter } from './HomePage/DressFilter';
 
 const Clothing = () => {
     const [dressData,setDressData]=useState([]);
@@ -22,17 +23,24 @@ const getProduct= async()=>{
   const sortHandler = (value) => {
     console.log(value);
     if (value === "htl") {
-        setDressData([...(data).sort((a, b) => b.price - a.price)]);
+        setDressData([...dressData].sort((a, b) => b.price - a.price));
     } else if (value === "lth") {
-        setDressData([...(data).sort((a, b) => a.price - b.price)]);
-    } else {
-        setDressData(data);
+        setDressData([...dressData].sort((a, b) => a.price - b.price));
+    } 
+    else if(value==='atz'){
+        setDressData([...dressData.sort((a, b) => a.content[0] - b.content[0])]);
+    }
+    else if(value==='zta'){
+        setDressData([...dressData.sort((a, b) => b.content[0] - a.content[0])]);
+    }
+    else {
+        setDressData(dressData);
     }
   };
   
   return (
     <div className='gardenContainer'>
-        <div>FilterFuntionality section</div>
+        <div><Dressfilter/></div>
         <div>
             <div className='flexContainer'>
                 <div><b>Products : </b><span> {totalCount}</span></div>

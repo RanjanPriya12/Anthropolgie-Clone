@@ -1,5 +1,5 @@
-import { style } from "@mui/system";
-import { useContext } from "react"
+// import { style } from "@mui/system";
+import { useContext} from "react"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -19,13 +19,13 @@ return (
    
 }} >
 
-<input style={{height:"30px",margin:"10px",width:"300px" }} type="text" placeholder="First Name..."/>
+<input style={{height:"30px",margin:"10px",width:"300px" }} type="text" required placeholder="First Name..."/>
 <br/>
-<input style={{height:"30px",margin:"10px",width:"300px" }} type="text" placeholder="Last Name..."/>
+<input style={{height:"30px",margin:"10px",width:"300px" }} type="text" required placeholder="Last Name..."/>
 <br/>
-<input style={{height:"30px",margin:"10px",width:"300px" }} type="email" placeholder="Email..."/>
+<input style={{height:"30px",margin:"10px",width:"300px" }} type="email" required placeholder="Email..."/>
 <br/>
-<input style={{height:"30px",margin:"10px",width:"300px" }} type="password" placeholder="Password..."/>
+<input style={{height:"30px",margin:"10px",width:"300px" }} type="password" required placeholder="Password..."/>
 <br/>
 <input style={{height:"30px",margin:"10px",backgroundColor:"#4b5666",color:"white",width:"300px" }} type="submit" value="Login"/>
 
