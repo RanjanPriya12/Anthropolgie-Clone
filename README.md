@@ -21,6 +21,7 @@ Anthropologie is an American clothing retailer with approximately 200 stores acr
 
 * Login
 * Sorting/Filtering
+* Pagination
 * Payment gateway page
 * Authentication is required for purchasing any product
 * Home Page/Products Page
